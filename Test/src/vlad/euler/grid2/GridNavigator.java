@@ -1,11 +1,13 @@
 package vlad.euler.grid2;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class GridNavigator implements Cloneable {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
-		GridNavigator gn = new GridNavigator(20,20);
+		GridNavigator gn = new GridNavigator(2,2);
 		
-		gn.walk(0,0,new String());
+		gn.walk(0,0,"");
 		
 		System.out.println("maxRoutes = " + GridNavigator.maxRoutes);
 	}
@@ -23,20 +25,20 @@ public class GridNavigator implements Cloneable {
 	}
 	
 	public void walk(int startX, int startY, String path) throws CloneNotSupportedException {
-		
+
 		if(x == lastCol() && y == lastCol()) {
-			System.out.println(path);
 			maxRoutes++;
+			System.out.println(StringUtils.leftPad("" + maxRoutes, 10, '0') + ": " + path);
 		}
 		
 		if(right(startX, startY)) {
 			GridNavigator r = (GridNavigator) this.clone();
-			r.walk(x,y,path + "RIGHT ");
+			r.walk(x,y,path + "r ");
 		}
 		
 		if(down(startX, startY)) {
 			GridNavigator d = (GridNavigator) this.clone();
-			d.walk(x,y,path + "DOWN ");
+			d.walk(x,y,path + "d ");
 		}
 	}
 	

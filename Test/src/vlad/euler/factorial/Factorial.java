@@ -17,10 +17,10 @@ public class Factorial {
 	}
 	
 	public static BigInteger factorial(String n) {
-		return factorial(new BigInteger(n));
+		return v(new BigInteger(n));
 	}
 	
-	public static BigInteger factorial(BigInteger n) {
+	public static BigInteger v(BigInteger n) {
 	    BigInteger factorial = BigInteger.valueOf(1);
 
 	    for (int i = 1; i <= n.intValue(); i++) {

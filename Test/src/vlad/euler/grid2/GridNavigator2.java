@@ -9,6 +9,25 @@ public class GridNavigator2 {
 	public static void main(String[] args) throws CloneNotSupportedException {
 		int gridSize = 20;
 		int digits = gridSize * 2;
+		long number = (long) Math.pow(2, digits);
+		
+		int count = 0;
+		String binary;
+		do {
+			number--;
+			binary = StringUtils.leftPad(Long.toBinaryString(number),digits,'0');
+			if(StringUtils.countMatches(binary, '0') == gridSize) {
+				count++;
+			}
+			
+		} while(number > 0);
+		
+		System.out.println(count);
+	}
+	
+	public static void main2(String[] args) throws CloneNotSupportedException {
+		int gridSize = 20;
+		int digits = gridSize * 2;
 		BigInteger number = new BigInteger("2").pow(digits);
 		
 		int count = 0;

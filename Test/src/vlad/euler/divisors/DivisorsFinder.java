@@ -18,4 +18,15 @@ public class DivisorsFinder {
 		return count;
 	}
 
+	public long sumDivisors(long number) {
+		int sum = 1; // any number is divisible by 1, and we are not summing up the number itself, so it starts with one
+		for(long i=2L; i<=(number/2L); i++) {
+			if((number % i) == 0) {
+				sum += i;
+				//System.out.print(i + ", ");
+			}
+		}
+		//System.out.println();
+		return sum;
+	}
 }
